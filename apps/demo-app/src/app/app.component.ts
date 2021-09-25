@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LoggerService } from '@my-project/logger';
 
 @Component({
   selector: 'my-project-root',
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'demo-app';
+
+  constructor(private logger: LoggerService) {
+    logger.debug('Debug: Manfred was here!');
+    logger.log(`Log: You've been haaaaacked!!`);
+  }
 }

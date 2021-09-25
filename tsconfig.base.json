@@ -14,7 +14,10 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@my-project/logger": ["libs/logger/src/index.ts"],
+      "@my-project/tabbed-pane": ["libs/tabbed-pane/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
