@@ -4,5 +4,6 @@
   "lib": {
     "entryFile": "src/index.ts"
   },
-  "assets": ["collection.json"]
+  "assets": ["collection.json", "src/generators"],
+  "allowedNonPeerDependencies": ["@nrwl/devkit", "@nrwl/angular", "@nrwl/workspace"]
 }

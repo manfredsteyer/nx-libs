@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "outDir": "../../dist/libs/tabbed-pane/src/generators",
+    "target": "ES5",
+    "types": [],
+    "lib": ["es2018"],
+    "moduleResolution": "node",
+    "module": "CommonJS"
+  },
+  "include": [
+    "src/generators/**/*.ts"
+  ],
+  "exclude": [
+    "src/test-setup.ts",
+    "**/*.spec.ts",
+  ]
+}

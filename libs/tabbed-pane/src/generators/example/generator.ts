@@ -31,7 +31,7 @@ export default async function generate(host: Tree, options: ExampleGeneratorSche
     host, 
     templatesFolder, 
     targetFolder,
-    {name, className});
+    {name, className, tmpl: ''});
 
   formatFiles(host);
 

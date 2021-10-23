@@ -6,7 +6,10 @@
     "@angular/core": "^12.2.0"
   },
   "dependencies": {
-    "tslib": "^2.3.0"
+    "tslib": "^2.3.0",
+    "@nrwl/angular": "^13.0.2",
+    "@nrwl/devkit": "^13.0.2",
+    "@nrwl/workspace": "^13.0.2"
   },
   "schematics": "./collection.json"
 }

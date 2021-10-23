@@ -1,26 +1,27 @@
 {
   "generators": {
     "install": {
-      "factory": "./generators/install/generator",
-      "schema": "./generators/install/schema.json",
+      "factory": "./src/generators/install/generator",
+      "schema": "./src/generators/install/schema.json",
       "description": "install generator"
     },
     "example": {
-      "factory": "./generators/example/generator",
-      "schema": "./generators/example/schema.json",
+      "factory": "./src/generators/example/generator",
+      "schema": "./src/generators/example/schema.json",
       "description": "example generator"
     }
   },
   "schematics": {
     "ng-add": {
-      "factory": "./generators/install/generator#schematic",
-      "schema": "./generators/install/schema.json",
+      "factory": "./src/generators/install/generator#schematic",
+      "schema": "./src/generators/install/schema.json",
       "description": "install generator"
     },
     "example": {
-      "factory": "./generators/example/generator#schematic",
-      "schema": "./generators/example/schema.json",
+      "factory": "./src/generators/example/generator#schematic",
+      "schema": "./src/generators/example/schema.json",
       "description": "example generator"
     } 
   }
 }
+

@@ -3,7 +3,8 @@ import {
   Tree,
   readProjectConfiguration,
   joinPathFragments,
-  convertNxGenerator
+  convertNxGenerator,
+  readWorkspaceConfiguration
 } from '@nrwl/devkit';
 
 import { insertImport } from '@nrwl/workspace/src/utilities/ast-utils';
@@ -13,6 +14,12 @@ import * as ts from 'typescript';
 import { InstallGeneratorSchema } from './schema';
 
 export default async function generate(host: Tree, options: InstallGeneratorSchema) {
+
+  if (!options.project) {
+    const workspace = readWorkspaceConfiguration(host);
+    if (!workspace.defaultProject) throw new Error(`no default project specified!`);
+    options.project = workspace.defaultProject;
+  }
 
   const config = readProjectConfiguration(host, options.project);
 
@@ -40,7 +47,7 @@ export default async function generate(host: Tree, options: InstallGeneratorSche
     host, 
     sourceFile, 
     filePath, 
-    'LoggerModule');
+    'TabbedPaneModule');
 
   formatFiles(host);
 }
