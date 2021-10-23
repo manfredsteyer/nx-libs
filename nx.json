@@ -46,9 +46,6 @@
     "tabbed-pane": {
       "tags": []
     },
-    "tabbed-pane-e2e": {
-      "tags": [],
-      "implicitDependencies": ["tabbed-pane"]
-    }
+    "workspace": {}
   }
 }

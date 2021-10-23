@@ -103,8 +103,7 @@
           "builder": "@nrwl/cypress:cypress",
           "options": {
             "cypressConfig": "apps/demo-app-e2e/cypress.json",
-            "devServerTarget": "demo-app:serve:development",
-            "tsConfig": "apps/demo-app-e2e/tsconfig.json"
+            "devServerTarget": "demo-app:serve:development"
           },
           "configurations": {
             "production": {
@@ -127,6 +126,22 @@
       "sourceRoot": "libs/logger/src",
       "prefix": "my-project",
       "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "outputs": ["dist/libs/logger"],
+          "options": {
+            "project": "libs/logger/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/logger/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/logger/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
         "test": {
           "builder": "@nrwl/jest:jest",
           "outputs": ["coverage/libs/logger"],
@@ -143,37 +158,6 @@
               "libs/logger/src/**/*.html"
             ]
           }
-        },
-        "storybook": {
-          "builder": "@nrwl/storybook:storybook",
-          "options": {
-            "uiFramework": "@storybook/angular",
-            "port": 4400,
-            "config": {
-              "configFolder": "libs/logger/.storybook"
-            }
-          },
-          "configurations": {
-            "ci": {
-              "quiet": true
-            }
-          }
-        },
-        "build-storybook": {
-          "builder": "@nrwl/storybook:build",
-          "outputs": ["{options.outputPath}"],
-          "options": {
-            "uiFramework": "@storybook/angular",
-            "outputPath": "dist/storybook/logger",
-            "config": {
-              "configFolder": "libs/logger/.storybook"
-            }
-          },
-          "configurations": {
-            "ci": {
-              "quiet": true
-            }
-          }
         }
       }
     },
@@ -183,6 +167,22 @@
       "sourceRoot": "libs/tabbed-pane/src",
       "prefix": "my-project",
       "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "outputs": ["dist/libs/tabbed-pane"],
+          "options": {
+            "project": "libs/tabbed-pane/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/tabbed-pane/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/tabbed-pane/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
         "test": {
           "builder": "@nrwl/jest:jest",
           "outputs": ["coverage/libs/tabbed-pane"],
@@ -199,62 +199,16 @@
               "libs/tabbed-pane/src/**/*.html"
             ]
           }
-        },
-        "storybook": {
-          "builder": "@nrwl/storybook:storybook",
-          "options": {
-            "uiFramework": "@storybook/angular",
-            "port": 4400,
-            "config": {
-              "configFolder": "libs/tabbed-pane/.storybook"
-            }
-          },
-          "configurations": {
-            "ci": {
-              "quiet": true
-            }
-          }
-        },
-        "build-storybook": {
-          "builder": "@nrwl/storybook:build",
-          "outputs": ["{options.outputPath}"],
-          "options": {
-            "uiFramework": "@storybook/angular",
-            "outputPath": "dist/storybook/tabbed-pane",
-            "config": {
-              "configFolder": "libs/tabbed-pane/.storybook"
-            }
-          },
-          "configurations": {
-            "ci": {
-              "quiet": true
-            }
-          }
         }
       }
     },
-    "tabbed-pane-e2e": {
-      "root": "apps/tabbed-pane-e2e",
-      "sourceRoot": "apps/tabbed-pane-e2e/src",
-      "projectType": "application",
+    "workspace": {
+      "root": ".",
       "architect": {
-        "e2e": {
-          "builder": "@nrwl/cypress:cypress",
+        "version": {
+          "builder": "@jscutlery/semver:version",
           "options": {
-            "cypressConfig": "apps/tabbed-pane-e2e/cypress.json",
-            "devServerTarget": "tabbed-pane:storybook"
-          },
-          "configurations": {
-            "ci": {
-              "devServerTarget": "tabbed-pane:storybook:ci"
-            }
-          }
-        },
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "outputs": ["{options.outputFile}"],
-          "options": {
-            "lintFilePatterns": ["apps/tabbed-pane-e2e/**/*.{js,ts}"]
+            "syncVersions": true
           }
         }
       }
@@ -290,6 +244,5 @@
     "@nrwl/angular:component": {
       "style": "scss"
     }
-  },
-  "defaultProject": "demo-app"
+  }
 }
