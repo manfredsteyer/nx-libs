@@ -2,6 +2,15 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [1.2.1](https://github.com/manfredsteyer/nx-libs/compare/v1.2.0...v1.2.1) (2021-10-23)
+
+
+### Bug Fixes
+
+* **tabbed-pane:** fix collection.json ([e3a0c60](https://github.com/manfredsteyer/nx-libs/commit/e3a0c60f75d5cf9bca558dff2b34e4c337f3b2c8))
+
+
+
 # [1.2.0](https://github.com/manfredsteyer/nx-libs/compare/v1.1.0...v1.2.0) (2021-10-23)
 
 
