@@ -2,6 +2,15 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+# [1.1.0](https://github.com/manfredsteyer/nx-libs/compare/v1.0.0...v1.1.0) (2021-10-23)
+
+
+### Features
+
+* **tabbed-pane:** change theming ([48c9de8](https://github.com/manfredsteyer/nx-libs/commit/48c9de8a5d890348ec034a67f9417514ae75fde6))
+
+
+
 # [1.0.0](https://github.com/manfredsteyer/nx-libs/compare/v0.1.0...v1.0.0) (2021-10-23)
 
 
