@@ -3,5 +3,6 @@
   "dest": "../../dist/libs/tabbed-pane",
   "lib": {
     "entryFile": "src/index.ts"
-  }
+  },
+  "assets": ["collection.json"]
 }

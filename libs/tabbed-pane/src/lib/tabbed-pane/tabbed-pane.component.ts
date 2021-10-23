@@ -14,6 +14,9 @@ export class TabbedPaneComponent implements AfterContentInit, OnChanges {
 
   activeTab: TabComponent | undefined;
 
+  /**
+   * The currently displayed page. Default: 1
+  */
   @Input() currentPage = 1;
 
   @Output() currentPageChange = new EventEmitter<number>();
@@ -39,6 +42,10 @@ export class TabbedPaneComponent implements AfterContentInit, OnChanges {
     }
   }
 
+  /**
+   * Activates the passed tab
+   * @param active Tab to activate
+   */
   activate(active: TabComponent): void {
     for (const tab of this.tabs) {
       tab.visible = (tab === active);
@@ -49,6 +56,10 @@ export class TabbedPaneComponent implements AfterContentInit, OnChanges {
     this.currentPageChange.next(this.currentPage);
   }
 
+  /**
+   * Activate the page with the passed number.
+   * @param page page to activate
+   */
   pageChange(page: number): void {
     this.activate(this.tabs[page - 1]);
     this.eventsSubject.next('pageChange');

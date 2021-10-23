@@ -19,7 +19,8 @@
           "lint",
           "test",
           "e2e",
-          "build-storybook"
+          "build-storybook",
+          "compodoc"
         ]
       }
     }
@@ -46,6 +47,13 @@
     "tabbed-pane": {
       "tags": []
     },
-    "workspace": {}
+    "tabbed-pane-e2e": {
+      "tags": [],
+      "implicitDependencies": ["tabbed-pane"]
+    },
+    "workspace": {},
+    "docs-app": {
+      "tags": []
+    }
   }
 }

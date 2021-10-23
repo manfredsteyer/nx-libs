@@ -9,7 +9,9 @@
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
-          "outputs": ["{options.outputPath}"],
+          "outputs": [
+            "{options.outputPath}"
+          ],
           "options": {
             "outputPath": "dist/apps/demo-app",
             "index": "apps/demo-app/src/index.html",
@@ -21,7 +23,9 @@
               "apps/demo-app/src/favicon.ico",
               "apps/demo-app/src/assets"
             ],
-            "styles": ["apps/demo-app/src/styles.scss"],
+            "styles": [
+              "apps/demo-app/src/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -86,7 +90,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/demo-app"],
+          "outputs": [
+            "coverage/apps/demo-app"
+          ],
           "options": {
             "jestConfig": "apps/demo-app/jest.config.js",
             "passWithNoTests": true
@@ -113,9 +119,13 @@
         },
         "lint": {
           "builder": "@nrwl/linter:eslint",
-          "outputs": ["{options.outputFile}"],
+          "outputs": [
+            "{options.outputFile}"
+          ],
           "options": {
-            "lintFilePatterns": ["apps/demo-app-e2e/**/*.{js,ts}"]
+            "lintFilePatterns": [
+              "apps/demo-app-e2e/**/*.{js,ts}"
+            ]
           }
         }
       }
@@ -128,7 +138,9 @@
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
-          "outputs": ["dist/libs/logger"],
+          "outputs": [
+            "dist/libs/logger"
+          ],
           "options": {
             "project": "libs/logger/ng-package.json"
           },
@@ -144,7 +156,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/logger"],
+          "outputs": [
+            "coverage/libs/logger"
+          ],
           "options": {
             "jestConfig": "libs/logger/jest.config.js",
             "passWithNoTests": true
@@ -158,6 +172,19 @@
               "libs/logger/src/**/*.html"
             ]
           }
+        },
+        "compodoc": {
+          "builder": "@twittwer/compodoc:compodoc",
+          "options": {
+            "tsConfig": "libs/logger/tsconfig.compodoc.json",
+            "outputPath": "dist/compodoc/logger",
+            "workspaceDocs": true
+          },
+          "configurations": {
+            "json": {
+              "exportFormat": "json"
+            }
+          }
         }
       }
     },
@@ -169,7 +196,9 @@
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
-          "outputs": ["dist/libs/tabbed-pane"],
+          "outputs": [
+            "dist/libs/tabbed-pane"
+          ],
           "options": {
             "project": "libs/tabbed-pane/ng-package.json"
           },
@@ -185,7 +214,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/tabbed-pane"],
+          "outputs": [
+            "coverage/libs/tabbed-pane"
+          ],
           "options": {
             "jestConfig": "libs/tabbed-pane/jest.config.js",
             "passWithNoTests": true
@@ -199,6 +230,83 @@
               "libs/tabbed-pane/src/**/*.html"
             ]
           }
+        },
+        "compodoc": {
+          "builder": "@twittwer/compodoc:compodoc",
+          "options": {
+            "tsConfig": "libs/tabbed-pane/tsconfig.lib.json",
+            "outputPath": "dist/compodoc/tabbed-pane",
+            "includes": "libs/tabbed-pane/docs",
+            "includesName": "Tutorials"
+          },
+          "configurations": {
+            "json": {
+              "exportFormat": "json"
+            }
+          }
+        },
+        "storybook": {
+          "builder": "@nrwl/storybook:storybook",
+          "options": {
+            "uiFramework": "@storybook/angular",
+            "port": 4400,
+            "config": {
+              "configFolder": "libs/tabbed-pane/.storybook"
+            }
+          },
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          }
+        },
+        "build-storybook": {
+          "builder": "@nrwl/storybook:build",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "uiFramework": "@storybook/angular",
+            "outputPath": "dist/storybook/tabbed-pane",
+            "config": {
+              "configFolder": "libs/tabbed-pane/.storybook"
+            }
+          },
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          }
+        }
+      }
+    },
+    "tabbed-pane-e2e": {
+      "root": "apps/tabbed-pane-e2e",
+      "sourceRoot": "apps/tabbed-pane-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/tabbed-pane-e2e/cypress.json",
+            "devServerTarget": "tabbed-pane:storybook"
+          },
+          "configurations": {
+            "ci": {
+              "devServerTarget": "tabbed-pane:storybook:ci"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": [
+            "{options.outputFile}"
+          ],
+          "options": {
+            "lintFilePatterns": [
+              "apps/tabbed-pane-e2e/**/*.{js,ts}"
+            ]
+          }
         }
       }
     },
@@ -209,6 +317,25 @@
           "builder": "@jscutlery/semver:version",
           "options": {
             "syncVersions": true
+          }
+        }
+      }
+    },
+    "docs-app": {
+      "projectType": "application",
+      "root": "apps/docs-app",
+      "sourceRoot": "apps/docs-app/src",
+      "architect": {
+        "build": {
+          "builder": "@nx-plus/docusaurus:browser",
+          "options": {
+            "outputPath": "dist/apps/docs-app"
+          }
+        },
+        "serve": {
+          "builder": "@nx-plus/docusaurus:dev-server",
+          "options": {
+            "port": 3000
           }
         }
       }

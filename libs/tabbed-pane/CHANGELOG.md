@@ -16,7 +16,7 @@ This file was generated using [@jscutlery/semver](https://github.com/jscutlery/s
 
 ### Features
 
-* **tabbedpane:** add event$ to TabbedPane ([84765f5](https://github.com/manfredsteyer/nx-libs/commit/84765f53ff25a3cc6d317eba2a5a320be7011cc4))
+* **tabbed-pane:** add event$ to TabbedPane ([84765f5](https://github.com/manfredsteyer/nx-libs/commit/84765f53ff25a3cc6d317eba2a5a320be7011cc4))
 
 
 

@@ -17,7 +17,7 @@ This file was generated using [@jscutlery/semver](https://github.com/jscutlery/s
 ### Features
 
 * **logger:** make LogFormatter mandatory ([a5fea16](https://github.com/manfredsteyer/nx-libs/commit/a5fea1606cd458a26df1dbe1283abb561468f32b))
-* **tabbedpane:** add event$ to TabbedPane ([84765f5](https://github.com/manfredsteyer/nx-libs/commit/84765f53ff25a3cc6d317eba2a5a320be7011cc4))
+* **tabbed-pane:** add event$ to TabbedPane ([84765f5](https://github.com/manfredsteyer/nx-libs/commit/84765f53ff25a3cc6d317eba2a5a320be7011cc4))
 
 
 ### BREAKING CHANGES

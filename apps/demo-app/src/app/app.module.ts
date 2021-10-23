@@ -11,7 +11,7 @@ import { CustomLogFormatter } from './custom-log.formatter';
     TabbedPaneModule,
     LoggerModule.forRoot({
       enableDebug: true,
-      // formatter: CustomLogFormatter
+      formatter: CustomLogFormatter
     })
   ],
   declarations: [
