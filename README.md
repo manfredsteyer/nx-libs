@@ -20,7 +20,7 @@ export default async function generate(host: Tree, options: InstallGeneratorSche
 export const schematic = convertNxGenerator(generate);
 ```
 
-In der ``collection.json`` werden dann sowohl die Generatoren als auch die Schematics eingetragen (siehe libs\tabbed-pane\collection.json).
+In der ``collection.json`` werden dann sowohl die Generatoren als auch die Schematics eingetragen (siehe ``libs\tabbed-pane\collection.json``).
 
 Tragen Sie die ``collection.json`` sowie den Ordner ``generators`` in Ihrer ``ng-package.json`` unter ``assets`` ein. Letzteres ist notwendig, damit die Templates kopiert werden.
 
@@ -80,7 +80,7 @@ Erstellen Sie im Ordner Ihrer Bibliothek eine ``tsconfig.generators.json``:
 }
 ```
 
-Erstellen Sie sich ein Build-Skript in der package.json in Ihrem Projekt-Root:
+Erstellen Sie sich ein Build-Skript in der ``package.json`` in Ihrem Projekt-Root:
 
 ```
 "build": "nx build tabbed-pane && tsc -p libs/tabbed-pane/tsconfig.generators.json",
