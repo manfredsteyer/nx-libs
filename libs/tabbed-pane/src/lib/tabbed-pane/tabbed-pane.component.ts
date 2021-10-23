@@ -1,4 +1,5 @@
 import { AfterContentInit, Component, ContentChildren, EventEmitter, Input, OnChanges, Output, QueryList, SimpleChanges } from '@angular/core';
+import { Subject } from 'rxjs';
 import { TabComponent } from '../tab/tab.component';
 
 @Component({
@@ -16,6 +17,10 @@ export class TabbedPaneComponent implements AfterContentInit, OnChanges {
   @Input() currentPage = 1;
 
   @Output() currentPageChange = new EventEmitter<number>();
+
+  private eventsSubject = new Subject<string>();
+  readonly events$ = this.eventsSubject.asObservable();
+
 
   get tabs(): TabComponent[] {
     return this.tabQueryList?.toArray() ?? [];
@@ -46,6 +51,7 @@ export class TabbedPaneComponent implements AfterContentInit, OnChanges {
 
   pageChange(page: number): void {
     this.activate(this.tabs[page - 1]);
+    this.eventsSubject.next('pageChange');
   }
 
 }
