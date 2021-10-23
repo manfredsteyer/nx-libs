@@ -1,7 +1,7 @@
 <div class="tabbed-pane">
     <div class="navigation">
         <span *ngFor="let tab of tabs" class="tab-link">
-            <a data-test="tab-link" [ngClass]="{active: tab == activeTab}" (click)="activate(tab)">{{tab.title}}</a>
+            <a data-test="tab-link" [ngClass]="{active: tab === activeTab}" (click)="activate(tab)">{{tab.title}}</a>
         </span>
     </div>
 

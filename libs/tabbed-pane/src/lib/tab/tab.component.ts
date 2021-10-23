@@ -7,7 +7,7 @@ import { Component, Input } from '@angular/core';
 })
 export class TabComponent {
 
-  @Input() title = '';
+  @Input() title = '<No Name>';
   visible = true;
 
 }
