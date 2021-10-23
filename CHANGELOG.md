@@ -2,6 +2,22 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+# [1.0.0](https://github.com/manfredsteyer/nx-libs/compare/v0.1.0...v1.0.0) (2021-10-23)
+
+
+### Features
+
+* **logger:** make LogFormatter mandatory ([a5fea16](https://github.com/manfredsteyer/nx-libs/commit/a5fea1606cd458a26df1dbe1283abb561468f32b))
+* **tabbedpane:** add event$ to TabbedPane ([84765f5](https://github.com/manfredsteyer/nx-libs/commit/84765f53ff25a3cc6d317eba2a5a320be7011cc4))
+
+
+### BREAKING CHANGES
+
+* **logger:** While before, specifying a LogFormatter was optional,
+you now need to define one when calling LoggerModule.forRoot.
+
+
+
 # 0.1.0 (2021-10-23)
 
 
